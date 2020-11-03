@@ -8,10 +8,15 @@ import csv
 # source.csvファイルを作成し、以下の情報記載
 # ねずこ,たんじろう,きょうじゅろう,ぎゆう,げんや,かなお,ぜんいつ
 
-with open('source.csv') as csv_file:
-    reader = csv.reader(csv_file)
-    for row in reader:
-        print(row)
+
+def open_source():
+    with open('source.csv', 'r') as csv_file:
+        reader = csv.reader(csv_file)
+        global row
+        for row in reader:
+            print(row)
+
+open_source()
 
 ### 検索ツール
         
@@ -32,9 +37,10 @@ def search():
 if __name__ == "__main__":
     search()
 
-with open('source.csv', 'w') as csv_file:
-    writer = csv.writer(csv_file)
-    writer.writerow(row)
+def write_source():
+    with open('source.csv', 'w') as csv_file:
+       writer = csv.writer(csv_file)
+       writer.writerow(row)
 
 print(row)
 
