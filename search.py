@@ -12,24 +12,27 @@ import csv
 def open_source():
     with open('source.csv', 'r') as csv_file:
         reader = csv.reader(csv_file)
-        global row
         for row in reader:
-            print(row)
+            return row
 
-open_source()
+source = open_source()
+print(source)
+print(type(source))
 
 ### 検索ツール
         
 def search():
     word =input("鬼滅の登場人物の名前を入力してください >>> ")
     
-    ### ここに検索ロジックを書く
-    print(word in row)
+    source = open_source()
 
-    if word in row:
+    ### ここに検索ロジックを書く
+    print(word in source)
+
+    if word in source:
         print('います')
     else:
-        row.append(word)
+        source.append(word)
         print('いません。追加します。')
 
     print("{}が見つかりました".format(word))
@@ -40,9 +43,9 @@ if __name__ == "__main__":
 def write_source():
     with open('source.csv', 'w') as csv_file:
        writer = csv.writer(csv_file)
-       writer.writerow(row)
+       writer.writerow(source)
 
-print(row)
+print(source)
 
 
     
