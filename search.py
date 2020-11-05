@@ -19,18 +19,19 @@ def open_source():
 # source = open_source()
 # print(source)
 
-if __name__ == '__main__':
-    source = open_source()
-    print(source)
+# if __name__ == '__main__':
+#     source = open_source()
+#     print(source)
     
     
 ### 検索ツール
         
-def search():
+def search(source):
     word =input("鬼滅の登場人物の名前を入力してください >>> ")
     
-    global source
-    source = open_source()
+    # メモ
+    # global source
+    # source = open_source()
     
     ### ここに検索ロジックを書く
     print(word in source)
@@ -45,16 +46,16 @@ def search():
 
     # print(source)
 
-if __name__ == "__main__":
-    search()
-
-
 def write_source():
     with open('source.csv', 'w') as csv_file:
         writer = csv.writer(csv_file)
         writer.writerow(source)
 
 if __name__ == "__main__":
-    write_source()
+    source = open_source()
+    print(source)
 
-print(source)
+    search(source)
+
+    write_source()
+    print(source)
