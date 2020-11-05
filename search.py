@@ -46,7 +46,7 @@ def search(source):
 
     # print(source)
 
-def write_source():
+def write_source(source):
     with open('source.csv', 'w') as csv_file:
         writer = csv.writer(csv_file)
         writer.writerow(source)
@@ -57,5 +57,5 @@ if __name__ == "__main__":
 
     search(source)
 
-    write_source()
+    write_source(source)
     print(source)
